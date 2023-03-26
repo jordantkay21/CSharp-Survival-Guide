@@ -11,11 +11,11 @@ public class DisplayController : MonoSingleton<DisplayController>
         base.Init();
     }
 
-    private Text displayText;
+    private TextMeshProUGUI displayText;
 
     private void Start()
     {
-        displayText = GameObject.Find("DisplayText").GetComponent<Text>();
+        displayText = GameObject.Find("DisplayText").GetComponent<TextMeshProUGUI>();
     }
 
     /// <summary>
@@ -23,7 +23,7 @@ public class DisplayController : MonoSingleton<DisplayController>
     /// </summary>
     public void ClearDisplay()
     {
-        displayText.text = "";
+        displayText.SetText("");
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ public class DisplayController : MonoSingleton<DisplayController>
     /// <param name="newText">Button Value</param>
     public void UpdateDisplayText(string newText)
     {
-        displayText.text += newText;
+        displayText.SetText(newText);
     }
     /// <summary>
     /// displays the answer to the equation
