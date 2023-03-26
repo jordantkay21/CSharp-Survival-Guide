@@ -12,6 +12,7 @@ public class DisplayController : MonoSingleton<DisplayController>
     }
 
     private TextMeshProUGUI displayText;
+    private string _equation = "";
 
     private void Start()
     {
@@ -32,7 +33,8 @@ public class DisplayController : MonoSingleton<DisplayController>
     /// <param name="newText">Button Value</param>
     public void UpdateDisplayText(string newText)
     {
-        displayText.SetText(newText);
+        _equation += newText;
+        displayText.SetText(_equation);
     }
     /// <summary>
     /// displays the answer to the equation
