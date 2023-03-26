@@ -5,26 +5,14 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
     public string value;
-    
-    /// <summary>
-    /// add the value of this button to the displayText
-    /// </summary>
-    public void AddValueToDisplay()
+
+    public void AddValue()
     {
-        DisplayController.Instance.UpdateDisplayText(value);
+        CalculationManager.Instance.FillNum(value);
     }
-    /// <summary>
-    /// Display answer method
-    /// </summary>
-    public void EvaluateEquation()
+
+    public void AddOperator()
     {
-        DisplayController.Instance.DisplayAnswer();
-    }
-    /// <summary>
-    /// Clear the DisplayText
-    /// </summary>
-    public void Clear()
-    {
-        DisplayController.Instance.ClearDisplay();
+        CalculationManager.Instance.SetOperator(value);
     }
 }
