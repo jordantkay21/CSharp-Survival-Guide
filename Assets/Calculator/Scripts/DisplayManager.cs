@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DisplayManager : MonoSingleton<DisplayManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private TextMeshProUGUI _displayText;
+    private string _equation;
+    private float _result;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Adds the numerical button value to the display
+    /// </summary>
+    /// <param name="newText">Value assigned to the button</param>
+    public void UpdateDisplayText(string newText)
     {
-        
+        _equation += newText;
+        _displayText.SetText(_equation);
+    }
+    /// <summary>
+    /// Clears the value of the number on the display
+    /// </summary>
+    public void ClearDisplay()
+    {
+        _equation = "";
+        _displayText.SetText(_equation);
+    }
+    public void ClearEquation()
+    {
+        _equation = "";
+    }
+    /// <summary>
+    /// Displays the result of the most recent solution the calculator solved
+    /// </summary>
+    /// <param name="result"> the answer to our equation found within the CalculatorManager</param>
+    public void DisplayAnswer(float result)
+    {
+        _result = result;
+        string resultString = _result.ToString();
+        _displayText.SetText(resultString);
     }
 }
